@@ -1,12 +1,7 @@
 /**
+ * åœ¨ä¸€ä¸ªäºŒç»´æ•°ç»„å¹³é¢æ¨¡åž‹ä¸­ï¼ŒæŽ¢æµ‹æŸä¸€ç‚¹æ˜¯å¦æœ‰ä¸€æ¡å¯ä»¥è®©æ°´æµç•™åˆ°è¾¹ç•Œçš„è·¯å¾„ é‡‡ç”¨é€’å½’å›žæº¯çš„æ–¹æ³•
  * 
- */
-package org.feng.demo;
-
-/**
- * ÔÚÒ»¸ö¶þÎ¬Êý×éÆ½ÃæÄ£ÐÍÖÐ£¬Ì½²âÄ³Ò»µãÊÇ·ñÓÐÒ»Ìõ¿ÉÒÔÈÃË®Á÷Áôµ½±ß½çµÄÂ·¾¶ ²ÉÓÃµÝ¹é»ØËÝµÄ·½·¨
- * 
- * @author Administrator 2017Äê9ÔÂ8ÈÕ ÏÂÎç12:32:29
+ * @author Administrator 2017å¹´9æœˆ8æ—¥ ä¸‹åˆ12:32:29
  */
 public class WaterEdgeProbe {
 
@@ -35,53 +30,53 @@ public class WaterEdgeProbe {
 	 * @return
 	 */
 	private static boolean hasPath2Edge(int[][] roadModel, int x, int y) {
-		// ¹ýÂË²»Õý³£Êý¾Ý
+		// è¿‡æ»¤ä¸æ­£å¸¸æ•°æ®
 		if (roadModel == null || x >= roadModel.length || x < 0 || y >= roadModel[0].length || y < 0) {
 			return false;
 		}
-		// ·ÃÎÊ±êÖ¾Î»£¬ÓÃÓÚÌ½²âÏÂÒ»²½Ê±ºò±ÜÃâÖØ¸´Ö®Ç°µÄÂ·¾¶£¨¶¯Ì¬³õÊ¼»¯Ä¬ÈÏÊÇfalse£©
+		// è®¿é—®æ ‡å¿—ä½ï¼Œç”¨äºŽæŽ¢æµ‹ä¸‹ä¸€æ­¥æ—¶å€™é¿å…é‡å¤ä¹‹å‰çš„è·¯å¾„ï¼ˆåŠ¨æ€åˆå§‹åŒ–é»˜è®¤æ˜¯falseï¼‰
 		boolean[][] visited = new boolean[roadModel.length][roadModel[0].length];
 		return hasPathCore(roadModel, x, y, visited);
 	}
 
 	/**
-	 * @param roadModel
+	 * @param road
 	 * @param x
 	 * @param y
 	 * @param visited
 	 * @return
 	 */
 	private static boolean hasPathCore(int[][] road, int x, int y, boolean[][] visited) {
-		// Èç¹ûµ±Ç°Ì½²âµ½±ß½çÔò·¶Î§true
+		// å¦‚æžœå½“å‰æŽ¢æµ‹åˆ°è¾¹ç•Œåˆ™èŒƒå›´true
 		if (x == 0 || x == road.length - 1 || y == 0 || y == road[0].length - 1) {
 			return true;
 		}
-		// ·¢ÏÖµ±Ç°½ÚµãÒÑ¾­ÔÚµ±Ç°Ì½²âÂ·¾¶ÉÏÔò¸ÃÌ½²â·½Ïò²»¿ÉÐÐ£¬·µ»Øfalse
+		// å‘çŽ°å½“å‰èŠ‚ç‚¹å·²ç»åœ¨å½“å‰æŽ¢æµ‹è·¯å¾„ä¸Šåˆ™è¯¥æŽ¢æµ‹æ–¹å‘ä¸å¯è¡Œï¼Œè¿”å›žfalse
 		if (visited[x][y] == true) {
 			return false;
 		}
-		// Ö»ÓÐÖ´ÐÐÌ½²âÏÂÒ»²½Ê±ºò£¬µ±Ç°Î»ÖÃ²ÅÐèÒªÌí¼ÓÒÑ·ÃÎÊ±êÖ¾
+		// åªæœ‰æ‰§è¡ŒæŽ¢æµ‹ä¸‹ä¸€æ­¥æ—¶å€™ï¼Œå½“å‰ä½ç½®æ‰éœ€è¦æ·»åŠ å·²è®¿é—®æ ‡å¿—
 		visited[x][y] = true;
 		boolean left = false, up = false, right = false, down = false;
-		// Ì½²â×ó±ß
+		// æŽ¢æµ‹å·¦è¾¹
 		if (road[x][y - 1] <= road[x][y]) {
 			left = hasPathCore(road, x, y - 1, visited);
 		}
-		// Ì½²âÉÏ±ß
+		// æŽ¢æµ‹ä¸Šè¾¹
 		if (road[x - 1][y] <= road[x][y]) {
 			up = hasPathCore(road, x - 1, y, visited);
 		}
-		// Ì½²âÓÒ±ß
+		// æŽ¢æµ‹å³è¾¹
 		if (road[x][y + 1] <= road[x][y]) {
 			right = hasPathCore(road, x, y + 1, visited);
 		}
-		// Ì½²âÏÂ±ß
+		// æŽ¢æµ‹ä¸‹è¾¹
 		if (road[x + 1][y] <= road[x][y]) {
 			down = hasPathCore(road, x + 1, y, visited);
 		}
-		// Ì½²âÍê±Ï »Ö¸´µ±Ç°Î´·ÃÎÊ×´Ì¬
+		// æŽ¢æµ‹å®Œæ¯• æ¢å¤å½“å‰æœªè®¿é—®çŠ¶æ€
 		visited[x][y] = false;
-		// Ö»ÒªÓÐÒ»¸ö·½ÏòÌ½²âµ½±ß½ç³É¹¦¾Í±íÃ÷´æÔÚµ½´ï±ß½çµÄÂ·¾¶
+		// åªè¦æœ‰ä¸€ä¸ªæ–¹å‘æŽ¢æµ‹åˆ°è¾¹ç•ŒæˆåŠŸå°±è¡¨æ˜Žå­˜åœ¨åˆ°è¾¾è¾¹ç•Œçš„è·¯å¾„
 		if (left || up || right || down) {
 			return true;
 		}

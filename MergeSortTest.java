@@ -1,17 +1,12 @@
 /**
+ * å½’å¹¶æ’åºï¼ˆé€’å½’å®ç°ï¼‰
  * 
- */
-package org.feng.demo.sort;
-
-/**
- * ¹é²¢ÅÅĞò£¨µİ¹éÊµÏÖ£©
- * 
- * @author Administrator 2017Äê8ÔÂ31ÈÕ ÏÂÎç7:02:21
+ * @author Administrator 2017å¹´8æœˆ31æ—¥ ä¸‹åˆ7:02:21
  */
 public class MergeSortTest {
 
 	/**
-	 * ´òÓ¡Ò»¸öintÊı×é
+	 * æ‰“å°ä¸€ä¸ªintæ•°ç»„
 	 * 
 	 * @param a
 	 */
@@ -37,7 +32,7 @@ public class MergeSortTest {
 	 * @param j
 	 */
 	private static void MergeSort(int[] nums, int start, int end) {
-		// ÖÁÉÙ¹æÄ£ÎªÁ½¸öÊı²ÅÄÜ½øĞĞ¹é²¢µİ¹é¹ı³Ì
+		// è‡³å°‘è§„æ¨¡ä¸ºä¸¤ä¸ªæ•°æ‰èƒ½è¿›è¡Œå½’å¹¶é€’å½’è¿‡ç¨‹
 		if (start < end) {
 			int middle = (start + end) / 2;
 			MergeSort(nums, start, middle);
@@ -47,7 +42,7 @@ public class MergeSortTest {
 	}
 
 	/**
-	 * ´ÓÒ»¸öÊı×éĞòÁĞÖĞ°´ÕÕmiddle½«×óÓÒÁ½¶ËÉıĞòÅÅÁĞµÄÊı½øĞĞÉıĞò¹é²¢
+	 * ä»ä¸€ä¸ªæ•°ç»„åºåˆ—ä¸­æŒ‰ç…§middleå°†å·¦å³ä¸¤ç«¯å‡åºæ’åˆ—çš„æ•°è¿›è¡Œå‡åºå½’å¹¶
 	 * 
 	 * @param nums
 	 * @param start
@@ -55,7 +50,7 @@ public class MergeSortTest {
 	 * @param end
 	 */
 	private static void merge(int[] nums, int start, int middle, int end) {
-		// ²¢·ÇÁ´±íµÄºÏ²¢£¬Òò´ËĞèÒª¸¨Öú¿Õ¼ä£¬×î´ó´ïO(n)µÄ¿Õ¼ä¸´ÔÓ¶È
+		// å¹¶éé“¾è¡¨çš„åˆå¹¶ï¼Œå› æ­¤éœ€è¦è¾…åŠ©ç©ºé—´ï¼Œæœ€å¤§è¾¾O(n)çš„ç©ºé—´å¤æ‚åº¦
 		int[] a1 = new int[middle - start + 1];
 		int[] a2 = new int[end - middle];
 		for (int i = 0, k = start; i < a1.length; i++, k++) {
@@ -64,8 +59,8 @@ public class MergeSortTest {
 		for (int i = 0, k = middle + 1; i < a2.length; i++, k++) {
 			a2[i] = nums[k];
 		}
-		// Ä£ÄâºÏ²¢Á´±íµÄË¼Â·
-		int p1 = 0, p2 = 0, p3 = start;// Á½¸öÊı×éµÄÖ¸Õë
+		// æ¨¡æ‹Ÿåˆå¹¶é“¾è¡¨çš„æ€è·¯
+		int p1 = 0, p2 = 0, p3 = start;// ä¸¤ä¸ªæ•°ç»„çš„æŒ‡é’ˆ
 		while (p1 < a1.length && p2 < a2.length) {			
 			if (a1[p1] <= a2[p2]) {
 				nums[p3++] = a1[p1++];
@@ -73,7 +68,7 @@ public class MergeSortTest {
 				nums[p3++] = a2[p2++];
 			}
 		}
-		// ´¦ÀíÊ£ÓàÊı×é
+		// å¤„ç†å‰©ä½™æ•°ç»„
 		if (p1 == a1.length) {
 			for (int i = p2; i < a2.length; i++) {
 				nums[p3++] = a2[i];

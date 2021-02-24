@@ -1,9 +1,4 @@
 /**
- * 
- */
-package org.feng.demo.sort;
-
-/**
  * 希尔排序（循环）
  * 
  * @author Administrator 2017年9月1日 上午9:59:43

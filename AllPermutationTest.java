@@ -1,12 +1,7 @@
 /**
+ * é€’å½’çš„æ€è·¯å®ç°å­—ç¬¦æ•°ç»„çš„å…¨æ’åˆ—åºåˆ—è¾“å‡º
  * 
- */
-package org.feng.demo;
-
-/**
- * µİ¹éµÄË¼Â·ÊµÏÖ×Ö·ûÊı×éµÄÈ«ÅÅÁĞĞòÁĞÊä³ö
- * 
- * @author Administrator 2017Äê8ÔÂ30ÈÕ ÏÂÎç9:06:20
+ * @author Administrator 2017å¹´8æœˆ30æ—¥ ä¸‹åˆ9:06:20
  */
 public class AllPermutationTest {
 
@@ -21,7 +16,7 @@ public class AllPermutationTest {
 	 * @param from
 	 */
 	private static void printAllPermutation(char[] seqs, int from, int to) {
-		// Èç¹ûµ±Ç°µİ¹é¹ı³Ì·¢ÏÖÖ»Ê£ÏÂÒ»¸öÔªËØÊ±ÒâÎ¶×ÅÒ»¸öĞòÁĞÒÑ¾­³ÉĞÍ
+		// å¦‚æœå½“å‰é€’å½’è¿‡ç¨‹å‘ç°åªå‰©ä¸‹ä¸€ä¸ªå…ƒç´ æ—¶æ„å‘³ç€ä¸€ä¸ªåºåˆ—å·²ç»æˆå‹
 		if (from == to) {
 			for (char ch : seqs) {
 				System.out.print(ch + "\t");
@@ -29,10 +24,10 @@ public class AllPermutationTest {
 			System.out.println();
 		} else {
 			for (int i = from; i <= to; i++) {
-				// ½«fromÎ»ÖÃµÄÔªËØÒÀ´ÎÈ¡±éµ±Ç°Çø¼ä[from, to]µÄËùÓĞÑ¡Ïî£¬Ä£ÄâÈËÄÔµÄÈ«ÅÅÁĞË¼¿¼¹ı³Ì
+				// å°†fromä½ç½®çš„å…ƒç´ ä¾æ¬¡å–éå½“å‰åŒºé—´[from, to]çš„æ‰€æœ‰é€‰é¡¹ï¼Œæ¨¡æ‹Ÿäººè„‘çš„å…¨æ’åˆ—æ€è€ƒè¿‡ç¨‹
 				swap(seqs, from, i);
 				printAllPermutation(seqs, from + 1, to);
-				swap(seqs, from, i);// »ØËİÔ­Ê¼×´Ì¬
+				swap(seqs, from, i);// å›æº¯åŸå§‹çŠ¶æ€
 			}
 		}
 	}
