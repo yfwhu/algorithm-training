@@ -20,6 +20,7 @@ public class LCSTest {
     }
 
     /***
+     * 时间复杂度 O(mn)
      * 返回两个字符串最长公共子序列长度
      * LCS 状态转义方程
      *           0                          (i,j=0)
@@ -48,6 +49,12 @@ public class LCSTest {
         return dp[m][n];
     }
 
+    /**
+     * 回溯 时间复杂度O(m+n)
+     * @param strA
+     * @param strB
+     * @return
+     */
     public static String getLCS(String strA, String strB) {
         int m = strA.length(), n = strB.length();
         StringBuilder lcs = new StringBuilder();
